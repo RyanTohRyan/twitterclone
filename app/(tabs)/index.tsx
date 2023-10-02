@@ -1,21 +1,21 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
 
-import { Text, View } from '../../components/Themed';
+
 import tweets from '../../assets/data/tweets';
+import Tweet from '../../components/Tweet';
 
-const tweet = tweets[0];
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Text>{tweet.content}</Text>
-    </View>
+<View style={styles.page}>
+<Tweet/>
+<Tweet/>
+</View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  page: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
   }
-});
+})
