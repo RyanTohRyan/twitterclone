@@ -1,30 +1,23 @@
-import { View,Text, Image, StyleSheet } from "react-native"
+import { View,Text, Image, StyleSheet, Pressable } from "react-native"
 
 import tweets from "../assets/data/tweets";
 import { TweetType } from "../types";
-import { Entypo, EvilIcons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
+import IconButton from "./IconButton";
+import { Link } from "expo-router";
 const tweet = tweets[0];
 
-type IconButtonProps = {
-  icon: React.ComponentProps<typeof EvilIcons>['name'];
-  text?: string | number;
-}
-const IconButton =({icon, text} : IconButtonProps) => {
-  return (
-    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-    <EvilIcons name={icon} size={22} color="gray"/>
-    <Text style={{fontSize: 12, color: 'gray'}}>{text}</Text>
-  </View>
-  )
-}
+
 type TweetProps ={
   tweet: TweetType;
 }
 const Tweet = ({tweet} : TweetProps) => {
-console.log(tweet.user.image?.toLowerCase())// the ? helps to not run the func in case its undefined
+//console.log(tweet.user.image?.toLowerCase())// the ? helps to not run the func in case its undefined
   
     return(
-        <View style={styles.container}>
+      <Link href={`/tweet/${tweet.id}`} asChild>
+        {/* //must put a pressable instead of view inside a link to make the whole thing pressabel */}
+        <Pressable style={styles.container}>
         <Image src={tweet.user.image} style= {styles.userImage}/>
 
         <View style={styles.mainContainer}>
@@ -48,7 +41,8 @@ console.log(tweet.user.image?.toLowerCase())// the ? helps to not run the func i
           
         </View>
         </View>
-      </View>
+      </Pressable>
+      </Link>
     )
 }
 
