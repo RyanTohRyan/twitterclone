@@ -1,8 +1,8 @@
 import { StyleSheet, Image, View, Pressable } from 'react-native';
 
 
-import tweets from '../../assets/data/tweets';
-import Tweet from '../../components/Tweet';
+import tweets from '../../../assets/data/tweets';
+import Tweet from '../../../components/Tweet';
 import { FlatList } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons';
 import { Link } from 'expo-router';
