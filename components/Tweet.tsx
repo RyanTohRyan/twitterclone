@@ -15,7 +15,7 @@ const Tweet = ({tweet} : TweetProps) => {
 //console.log(tweet.user.image?.toLowerCase())// the ? helps to not run the func in case its undefined
   
     return(
-      <Link href={`/tweet/${tweet.id}`} asChild>
+      <Link href={`/feed/tweet/${tweet.id}`} asChild>
         {/* //must put a pressable instead of view inside a link to make the whole thing pressabel */}
         <Pressable style={styles.container}>
         <Image src={tweet.user.image} style= {styles.userImage}/>
